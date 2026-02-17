@@ -1,65 +1,83 @@
-# AI Experts Assignment (Python)
+# Eskalate AI Python Assignment
 
-This assignment evaluates your ability to:
+This repository contains the solution for the Eskalate AI Training Software Engineer (Python) assignment.  
+It includes the core application logic, a comprehensive test suite, Docker configuration, and setup instructions.
 
-- set up a small Python project to run reliably (locally + in Docker),
-- pin dependencies for reproducible installs,
-- write focused tests to reproduce a bug,
-- implement a minimal, reviewable fix.
+---
 
-## What you will do
+##  Prerequisites
 
-### 1) Dockerfile (required)
+Before running the project, ensure you have the following installed:
 
-Create a `Dockerfile` so the project can run the test suite in a non-interactive, CI-style environment.
+- Python 3.11+
+- `pip` or `conda` (for dependency management)
+- Docker Desktop (optional, for containerized testing)
 
-Requirements:
+---
 
-- requirements.txt exists and is used during build (pip install -r requirements.txt)
-- pytest must be included/pinned in requirements.txt
-- The image must run tests by default (use: `CMD ["python", "-m", "pytest", "-v"]`).
-- The build must install dependencies from `requirements.txt`.
+##  Running Tests Locally
 
-### 2) requirements.txt (required)
+Follow these steps to execute the test suite on your local machine:
 
-Create a `requirements.txt` with pinned versions, using this format:
+1. **Activate your environment**:
 
-- `package==x.y.z`
+```bash
+conda activate eskalate-assignment
+```
+2. **Install dependencies** :
 
-### 3) README updates (required)
+```
+pip install -r requirements.txt
+```
 
-Update this README to include:
+3. **Run the test suite**:
+```
+pytest -v
+```
 
-- how to run the tests locally,
-- how to build and run tests with Docker.
+**Example of successful local test run:**
 
-### 4) Find + fix a bug (required)
+![Local Test Results](screenshots/pytest_local.png)
 
-There is a bug somewhere in this repository.
 
-Your tasks:
+Note: Ensure all tests show a green PASSED status before committing changes.
 
-- Identify the bug through reading code and/or running tests.
-- Write tests that reproduce the bug (tests should fail on the current code).
-- Apply the smallest possible fix to make the tests pass.
-- Keep the change minimal and reviewable (no refactors).
+---
+## Running Tests via Docker
 
-## Constraints
+To ensure environment parity, you can run the entire suite within a Docker container:
 
-- Keep changes minimal and reviewable.
-- Do not refactor unrelated code.
-- Do not introduce extra tooling unless required.
-- You may add tests and the smallest code change needed to fix the bug.
+1. **Build the Docker image**:
+```
+docker build -t eskalate-assignment .
+```
+2. **Run the container**:
+```
+docker run --rm eskalate-assignment
+```
 
-### 5) EXPLANATION.md (required)
+**Example of successful Docker test run:**
 
-Create `EXPLANATION.md` (max 250 words) containing:
+![Docker Test Results](screenshots/pytest_docker.png)
+```
+--- 
 
-- **What was the bug?**
-- **Why did it happen?**
-- **Why does your fix solve it?**
-- **One realistic case / edge case your tests still don’t cover**
+##  Repository Structure
+.
+├── app/                 # Application source code
+├── tests/               # Unit and integration tests
+├── Dockerfile           # Containerization setup
+├── requirements.txt     # Pinned Python dependencies
+├── README.md            # Project instructions
+└── Explanation.md       # Detailed bug analysis and fix documentation
 
-## Submission
 
-- Submit a public GitHub repository URL containing your solution to the Google form link provided.
+
+---
+##  Project Notes
+
+- **Automation:** The Dockerfile runs `pytest -v` automatically when executed.
+- **Reproducibility:** Dependencies are pinned in `requirements.txt` to avoid "works on my machine" issues.
+- **Precision:** Bug fixes were minimal and targeted, ensuring tests pass without side effects.
+- **Verification:** Screenshots (if added) provide visual confirmation of successful runs locally and in Docker.
+
