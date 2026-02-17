@@ -63,15 +63,15 @@ docker run --rm eskalate-assignment
 --- 
 
 ##  Repository Structure
-.
+```
 ├── app/                 # Application source code
 ├── tests/               # Unit and integration tests
 ├── Dockerfile           # Containerization setup
 ├── requirements.txt     # Pinned Python dependencies
 ├── README.md            # Project instructions
 └── Explanation.md       # Detailed bug analysis and fix documentation
-
-
+```
+---
 
 ---
 ##  Project Notes
