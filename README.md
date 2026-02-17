@@ -59,7 +59,7 @@ docker run --rm eskalate-assignment
 **Example of successful Docker test run:**
 
 ![Docker Test Results](screenshots/pytest_docker.png)
-```
+
 --- 
 
 ##  Repository Structure
