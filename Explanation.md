@@ -2,8 +2,8 @@
 
 ## What was the bug?
 
-The code failed when setting the Authorization header if `self.oauth2_token` was an `OAuth2Token` object instead of a dict.  
-Expired dict tokens also didn’t refresh, leaving the header empty.
+- The code failed when setting the Authorization header if `self.oauth2_token` was an `OAuth2Token` object instead of a dict.  
+- Expired dict tokens also didn’t refresh, leaving the header empty.
 
 ---
 
